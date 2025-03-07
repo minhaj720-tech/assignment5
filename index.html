@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 5</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.24/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .poppins-regular {
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+
+
+
+        #activity-log{
+
+          gap: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body class="poppins-regular bg-[#F4F7FF]">
+    <div class="ml-20 mr-20">
+      <div
+        class="flex items-center justify-between bg-white p-3 rounded-xl shadow-md w-full"
+      >
+        <!-- Logo & Text -->
+        <div class="flex items-center gap-2 p-2">
+          <!-- Logo Image -->
+          <div>
+            <img src="assets/logo.png" alt="Logo" class="w-6 h-6" />
+          </div>
+          <span class="text-lg font-semibold">
+            Dev<span class="text-blue-600">Board</span>
+          </span>
+        </div>
+
+        <!-- Icons & Number -->
+        <div class="flex items-center gap-4">
+          <div
+            class="flex items-center gap-1 bg-gray-100 px-3 py-2 rounded-full"
+          >
+            <input type="checkbox" class="checkbox checkbox-primary" checked />
+            <span class="font-semibold">23</span>
+          </div>
+          <!-- Circular Image Icon -->
+          <div
+            class="w-8 h-8 rounded-full bg-gradient-to-r from-yellow-400 via-pink-500 to-blue-500 flex items-center justify-center"
+          >
+            <img
+              src="assets/theme-btn.png"
+              alt="Settings"
+              class="w-5 h-5"
+              onclick="changeBackground()"
+              style="cursor: pointer"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="flex gap-4 mt-5">
+        <div class="w-full h-[918px] gap-10 bg-white p-6 rounded-2xl">
+          <section class="flex gap-5 justify-between">
+            <div
+              class="form-control bg-[#F4F7FF] w-[263px] h-[128px] rounded-md items-center"
+            >
+              <div class="flex mt-10">
+                <label class="label cursor-pointer">
+                  <input type="checkbox" checked="checked" class="checkbox" />
+                </label>
+                <span id="taskCount" class="mt-2"
+                  >Task Assigned <br />
+                  <span>06</span>
+                </span>
+              </div>
+            </div>
+            <div
+              class="form-control bg-gradient-to-r from-[#3752FD] to-[#9BA8F8] w-[524px] h-[128px] rounded-md items-center"
+            >
+              <div class="flex mt-7">
+                <img src="assets/board.png" alt="" />
+                <span id="to-questions" class="mt-2 text-white"
+                  >Discover something <br />
+                  New Today
+                </span>
+              </div>
+            </div>
+            <div
+              class="form-control bg-[#F4F7FF] w-[263px] h-[128px] rounded-md items-center"
+            >
+              <div class="flex gap-4 mt-10">
+                <img src="assets/calender.png" alt="" />
+                <span class="mt-2"
+                  ><p id="day"><br /></p>
+                  <p id="date" class="font-bold"></p
+                ></span>
+              </div>
+            </div>
+          </section>
+          <div class="mt-6">
+            <div class="grid grid-cols-3 gap-9">
+              <div
+                class="w-[342PX] h-[317px] bg-[#F4F7FF] rounded-2xl p-6 shadow-xl"
+              >
+                <button
+                  class="btn btn-active w-[114px] h-[40px] bg-white border-none font-normal"
+                >
+                  ShopEase
+                </button>
+
+                <div>
+                  <h2 class="my-4 font-semibold text-base">
+                    Fix Mobile Button Issue
+                  </h2>
+                  <p
+                    class="w-full h-[92px] bg-white rounded-md text-[16px] text-opacity-50 text-black p-1 line-clamp-2"
+                  >
+                    Debug using Chrome DevTools, check for overlapping
+                    elements,....
+                  </p>
+
+                  <div class="flex gap-5 mt-3.5 justify-between">
+                    <div>
+                      <p class="opacity-50">Deadline</p>
+                      <p class="font-bold">21 March,2025</p>
+                    </div>
+
+                    <button
+                      class="task-btn btn w-[135px] bg-[#3752FD] text-white"
+                      onclick="completeTask(this)"
+                    >
+                      Completed
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="w-[342PX] h-[317px] bg-[#F4F7FF] rounded-2xl p-6 shadow-xl"
+              >
+                <button
+                  class="btn btn-active w-[114px] h-[40px] bg-white border-none font-normal"
+                >
+                  CloudSync
+                </button>
+
+                <div>
+                  <h2 class="my-4 font-semibold text-base">Add Dark Mode</h2>
+                  <p
+                    class="w-full h-[92px] bg-white rounded-md text-[16px] text-opacity-50 text-black p-1 line-clamp-2"
+                  >
+                    Debug using Chrome DevTools, check for overlapping
+                    elements,....
+                  </p>
+
+                  <div class="flex gap-5 mt-3.5 justify-between">
+                    <div>
+                      <p class="opacity-50">Deadline</p>
+                      <p class="font-bold">21 March,2025</p>
+                    </div>
+
+                    <button
+                      class="task-btn btn w-[135px] bg-[#3752FD] text-white"
+                      onclick="completeTask(this)"
+                    >
+                      Completed
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="w-[342PX] h-[317px] bg-[#F4F7FF] rounded-2xl p-6 shadow-xl"
+              >
+                <button
+                  class="btn btn-active w-[114px] h-[40px] bg-white border-none font-normal"
+                >
+                  SwiftPay
+                </button>
+
+                <div>
+                  <h2 class="my-4 font-semibold text-base">
+                    Optimize Home Page
+                  </h2>
+                  <p
+                    class="w-full h-[92px] bg-white rounded-md text-[16px] text-opacity-50 text-black p-1 line-clamp-2"
+                  >
+                    Debug using Chrome DevTools, check for overlapping
+                    elements,....
+                  </p>
+
+                  <div class="flex gap-5 mt-3.5 justify-between">
+                    <div>
+                      <p class="opacity-50">Deadline</p>
+                      <p class="font-bold">21 March,2025</p>
+                    </div>
+
+                    <button
+                      class="task-btn btn w-[135px] bg-[#3752FD] text-white"
+                      onclick="completeTask(this)"
+                    >
+                      Completed
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="w-[342PX] h-[317px] bg-[#F4F7FF] rounded-2xl p-6 shadow-xl"
+              >
+                <button
+                  class="btn btn-active w-[114px] h-[40px] bg-white border-none font-normal"
+                >
+                  Meta
+                </button>
+
+                <div>
+                  <h2 class="my-4 font-semibold text-base">Add New Emoji 🤲</h2>
+                  <p
+                    class="w-full h-[92px] bg-white rounded-md text-[16px] text-opacity-50 text-black p-1 line-clamp-2"
+                  >
+                    Debug using Chrome DevTools, check for overlapping
+                    elements,....
+                  </p>
+
+                  <div class="flex gap-5 mt-3.5 justify-between">
+                    <div>
+                      <p class="opacity-50">Deadline</p>
+                      <p class="font-bold">21 March,2025</p>
+                    </div>
+
+                    <button
+                      class="task-btn btn w-[135px] bg-[#3752FD] text-white"
+                      onclick="completeTask(this)"
+                    >
+                      Completed
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="w-[342PX] h-[317px] bg-[#F4F7FF] rounded-2xl p-6 shadow-xl"
+              >
+                <button
+                  class="btn btn-active w-[114px] h-[40px] bg-white border-none font-normal"
+                >
+                  Google LLC
+                </button>
+
+                <div>
+                  <h2 class="my-4 font-semibold text-base">
+                    Integrate OpenAI API
+                  </h2>
+                  <p
+                    class="w-full h-[92px] bg-white rounded-md text-[16px] text-opacity-50 text-black p-1 line-clamp-2"
+                  >
+                    Debug using Chrome DevTools, check for overlapping
+                    elements,....
+                  </p>
+
+                  <div class="flex gap-5 mt-3.5 justify-between">
+                    <div>
+                      <p class="opacity-50">Deadline</p>
+                      <p class="font-bold">21 March,2025</p>
+                    </div>
+
+                    <button
+                      class="task-btn btn w-[135px] bg-[#3752FD] text-white"
+                      onclick="completeTask(this)"
+                    >
+                      Completed
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="w-[342PX] h-[317px] bg-[#F4F7FF] rounded-2xl p-6 shadow-xl"
+              >
+                <button
+                  class="btn btn-active w-[114px] h-[40px] bg-white border-none font-normal"
+                >
+                  Glassdoar
+                </button>
+
+                <div>
+                  <h2 class="my-4 font-semibold text-base">
+                    Improve Job Searching
+                  </h2>
+                  <p
+                    class="w-full h-[92px] bg-white rounded-md text-[16px] text-opacity-50 text-black p-1 line-clamp-2"
+                  >
+                    Debug using Chrome DevTools, check for overlapping
+                    elements,....
+                  </p>
+
+                  <div class="flex gap-5 mt-3.5 justify-between">
+                    <div>
+                      <p class="opacity-50">Deadline</p>
+                      <p class="font-bold">21 March,2025</p>
+                    </div>
+
+                    <button
+                      class="task-btn btn w-[135px] bg-[#3752FD] text-white"
+                      onclick="completeTask(this)"
+                    >
+                      Completed
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="bg-white w-[366px] h-[918px] p-6 justify-items-center rounded-2xl"
+        >
+          <div  >
+            <div class="flex gap-4 mb-4">
+              <img src="assets/activity.png" alt="" />
+
+              <p>Activity Log</p>
+            </div>
+            <button class="btn btn-clear-history w-[135px] bg-[#3752FD] text-white ">
+              Clear History
+            </button>
+            <div
+            id="activity-log"          class=" w-[full] h-[full] bg-[#F4F7FF] rounded-md text-[12px] text-opacity-50 text-black p-1 overflow-hidden mt-2 activity-log-container  gap-10"
+            >
+             <br />
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/dev.js"></script>
+  </body>
+</html>
